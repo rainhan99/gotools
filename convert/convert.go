@@ -1,7 +1,6 @@
 package convert
 
 import (
-	"errors"
 	"time"
 )
 
@@ -79,21 +78,6 @@ func Byte(b byte) *byte {
 
 func Rune(r rune) *rune {
 	return &r
-}
-
-type All interface {
-	int | int8 | int16 | int32 | int64 | string |
-		uint | uint8 | uint16 | uint32 | uint64 |
-		float32 | float64 | byte | rune | time.Time | time.Duration | rune
-}
-
-func Convert[A All](a interface{}) (A, error) {
-	result, ok := a.(A)
-	if !ok {
-		var a A
-		return a, errors.New("convert error")
-	}
-	return result, nil
 }
 
 func ToBool(b *bool) (c bool) {
