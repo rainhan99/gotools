@@ -203,5 +203,6 @@ func ToRune(r *rune) (t rune) {
 	if r == nil {
 		return t
 	}
+	
 	return *r
 }
